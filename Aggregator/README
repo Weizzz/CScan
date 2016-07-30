@@ -1,0 +1,6 @@
+To get this working, install the following:
+
+sudo easy_install pip
+pip install BeautifulSoup4
+pip install lxml
+
