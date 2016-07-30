@@ -3,7 +3,7 @@ import sys
 import os
 from flask import Flask
 sys.path.append('/Library/Frameworks/Python.framework/Versions/3.4/lib/python3.4/site-packages')
-#from pymongo import MongoClient
+from pymongo import MongoClient
 from flask.ext.login import LoginManager
 
 
@@ -23,10 +23,10 @@ app.config.from_envvar('CSCAN_SETTING', silent=True)
 app.config['basedir'] = os.path.abspath(os.path.dirname(__file__))
 
 # MongoDB database setting
-#client = MongoClient()
-#client = MongoClient('mongodb://weizteoh:1q2w3e4r5t6y@ds031965.mlab.com:31965/cscandb')
-#db = client['cscandb']
-#agency_collection = db['agency']
+client = MongoClient()
+client = MongoClient('mongodb://cscan:wallacefucktheworld@ds031965.mlab.com:31965/cscandb')
+db = client['cscandb']
+agency_collection = db['agency']
 
 # Manager authentication with LoginManager
 # Handle Login with LoginManager

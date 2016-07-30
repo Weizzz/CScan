@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+            <form id="registerForm" method="post" action= {{ url_for('add') }}>
+                  <label>Agency Name</label>
+                  {{ form.agencyName(placeholder="Suggestion: Two Swans") }}
+
+                  <label>Email</label>
+                  {{ form.email(placeholer="Suggestion: abc@xyz.com") }}
+
+                  <label>Confirm Password</label>
+                  {{ form.description(placeholder="Insert description") }}
+
+                <button class="fluid ui blue submit button" type="submit">Register</button>
+            </form>
+        
+{% endblock %}
