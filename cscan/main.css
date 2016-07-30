@@ -1,0 +1,27 @@
+html, body {
+  height: 100%; width: 100%; margin: 0;
+}
+/*Standard classes for styling*/
+.container{
+  margin:auto;
+  display:block;
+  text-align: center;
+}
+
+body{
+  background-color:#F6F6F6;
+}
+
+#mapdiv{
+  width:80%;
+  height: 600px;
+  float:right;
+  /*aria-lable:Asia;*/
+}
+
+.section-intro{
+  float: left;
+  width: 20%;
+  height:100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}

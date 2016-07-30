@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>amMap examples</title>
+
+        <link rel="stylesheet" href="main.css" type="text/css">
+        <script src="ammap/ammap.js" type="text/javascript"></script>
+        <!-- map file should be included after ammap.js -->
+		<script src="ammap/maps/js/continentsLow.js" type="text/javascript"></script>
+
+		<script>
+			var map;
+
+			AmCharts.ready(function() {
+				var map;
+
+				map = new AmCharts.AmMap();
+
+				map.dragMap = false;
+				map.color = "#FFFFFF";
+
+				map.areasSettings = {
+					autoZoom: false,
+					rollOverOutlineColor: "#5AB7DB",
+					selectedColor: "#EAAC7B",
+					rollOverColor: "#EAAC7B",
+					outlineAlpha: 1,
+					outlineColor: "#FFFFFF",
+					outlineThickness: 1,
+					color: "#000000"
+				};
+
+				map.dataProvider = {
+					mapVar: AmCharts.maps.continentsLow,
+
+					areas: [{
+						"id": "africa",
+							"title": "Africa",
+               "url":"Pages/africa.html",
+						// 	"pattern": {
+						// 	"url": "patterns/white/pattern1.png",
+						// 	width: 4,
+						// 	height: 4
+						// }
+					}, {
+						"id": "asia",
+							"title": "Asia",
+              "url":"Pages/asia.html",
+						// 	"pattern": {
+						// 	"url": "patterns/white/pattern2.png",
+						// 	width: 4,
+						// 	height: 4
+						// }
+					}, {
+						"id": "australia",
+							"title": "Australia",
+              "url":"Pages/australia.html",
+						// 	"pattern": {
+						// 	"url": "patterns/white/pattern3.png",
+						// 	width: 4,
+						// 	height: 4
+						// }
+					}, {
+						"id": "europe",
+							"title": "Europe",
+              "url":"Pages/europe.html",
+						// 	"pattern": {
+						// 	"url": "patterns/white/pattern4.png",
+						// 	width: 4,
+						// 	height: 4
+						// }
+					}, {
+						"id": "north_america",
+							"title": "North America",
+              "url":"Pages/northamerica.html",
+						// 	"pattern": {
+						// 	"url": "patterns/white/pattern5.png",
+						// 	width: 4,
+						// 	height: 4
+						// }
+					}, {
+						"id": "south_america",
+							"title": "South America",
+              "url":"Pages/southamerica.html",
+						// 	"pattern": {
+						// 	"url": "patterns/white/pattern6.png",
+						// 	width: 4,
+						// 	height: 4
+						// }
+					}]
+				};
+				var zoomControl = map.zoomControl;
+				zoomControl.panControlEnabled = false;
+				zoomControl.zoomControlEnabled = false;
+
+				map.write("mapdiv");
+
+			});
+
+        </script>
+    </head>
+
+    <body>
+        <div id="mapdiv">
+
+          <input type="button" name="North America" aria-label="North America" onclick="location.href='northamerica.html'">
+
+        </div>
+
+        <div class="section-intro">
+          <div class="container">
+            <div class="header-text">
+              <h1>Welcome to charitable</h1>
+              <h2>Find the causes you are passionate about</h2>
+            </div>
+          </div>
+        </div>
+    </body>
+
+</html>
