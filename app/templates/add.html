@@ -3,15 +3,19 @@
 {% block content %}
             <form id="registerForm" method="post" action= {{ url_for('add') }}>
                   <label>Agency Name</label>
-                  {{ form.agencyName(placeholder="Suggestion: Two Swans") }}
+                  {{ form.agencyName(placeholder="E.g. Two Swans") }}
 
-                  <label>Email</label>
-                  {{ form.email(placeholer="Suggestion: abc@xyz.com") }}
+                  <label>Website</label>
+                  {{ form.website(placeholer="E.g. www.twoswans.com") }}
 
-                  <label>Confirm Password</label>
+                  <label>Location</label>
+                  {{ form.Location(placeholder="Insert Country") }}
+
+                  <label>Description</label>
                   {{ form.description(placeholder="Insert description") }}
+
 
                 <button class="fluid ui blue submit button" type="submit">Register</button>
             </form>
-        
+
 {% endblock %}

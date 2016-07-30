@@ -5,8 +5,9 @@ from flask import flash
 from app.Helpers.Constant import *
 
 class regoForm(Form):
-    agencyName = TextField(NAME, [validators.required()])
-    email = TextField(EMAIL, [validators.required()])
+    agencyName  = TextField(NAME, [validators.required()])
+    website     = TextField(WEBSITE, [validators.required()])
+    location    = TextField(LOCATION, [validators.required()]) #country
     description = TextAreaField(DESCRIPTION, [validators.required()])
 
     def __init__(self, *args, **kwargs):
@@ -24,13 +25,14 @@ class regoForm(Form):
 
         checkName = agency_collection.find_one({NAME: self.agencyName.data.rstrip()})
         if checkName:
-            flash('Email has already been taken', 'warning')
+            flash('Agency has already been filled', 'warning')
             return False
         else:
             agency = {
-                NAME      : self.agencyName.data.rstrip(),
-                EMAIL         : self.email.data.rstrip(),
-                DESCRIPTION      : self.description.data
+                NAME            : self.agencyName.data.rstrip(),
+                EMAIL           : self.website.data.rstrip(),
+                LOCATION        : self.location.data.rstrip(),
+                DESCRIPTION     : self.description.data
             }
 
             # insert into database

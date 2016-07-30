@@ -4,7 +4,23 @@
 
     </head>
     <body>
-
+      <!-- Warning message. Activated by flash() in views.py -->
+      {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+              {% for category, message in messages %}
+                  <div class= 'ui {{ category }} icon message attached small transition'>
+                      <i class="announcement icon"></i>
+                      <i class="close icon"></i>
+                      <div class="content">
+                          <div class="header">
+                              {{ message }}
+                          </div>
+                      </div>
+                  </div>
+              {% endfor%}
+          {% endif %}
+      {% endwith %}
+      
       <!-- Main Body -->
       {% block content %}
       {% endblock %}
