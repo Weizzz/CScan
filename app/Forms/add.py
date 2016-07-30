@@ -5,10 +5,12 @@ from flask import flash
 from app.Helpers.Constant import *
 
 class regoForm(Form):
+    index       = TextField(INDEX)
     agencyName  = TextField(NAME, [validators.required()])
-    website     = TextField(WEBSITE, [validators.required()])
-    location    = TextField(LOCATION, [validators.required()]) #country
-    description = TextAreaField(DESCRIPTION, [validators.required()])
+    website     = TextField(WEBSITE)
+    location    = TextField(LOCATION) #country
+    description = TextAreaField(DESCRIPTION)
+
 
     def __init__(self, *args, **kwargs):
         Form.__init__(self, *args, **kwargs)
@@ -23,14 +25,35 @@ class regoForm(Form):
             flash(message, 'error')
             return False
 
-        checkName = agency_collection.find_one({NAME: self.agencyName.data.rstrip()})
-        if checkName:
-            flash('Agency has already been filled', 'warning')
-            return False
+
+        checkIndex = agency_collection.find_one({INDEX: float(self.index.data.rstrip())}) if self.index.data.rstrip() is not '' else ''
+        if checkIndex:
+            flash('Agency has already been filled and will be updated', 'warning')
+            bufferName        = self.agencyName.data.rstrip() or checkIndex[NAME]
+            bufferWebsite     = self.website.data.rstrip() or checkIndex[WEBSITE]
+            bufferLocation    = self.location.data.rstrip() or checkIndex[LOCATION]
+            bufferDescription = self.description.data.rstrip() or checkIndex[DESCRIPTION]
+
+            agency_collection.update({
+                                        NAME: self.agencyName.data.rstrip()
+                                        }, {
+                                            '$set':{
+                                            NAME       :   bufferName,
+                                            WEBSITE    :   bufferWebsite,
+                                            LOCATION   :   bufferLocation,
+                                            DESCRIPTION:   bufferDescription
+
+                                        }})
+
+            return True
         else:
+
+            newIndex = agency_collection.count()
+
             agency = {
+                INDEX           : newIndex,
                 NAME            : self.agencyName.data.rstrip(),
-                EMAIL           : self.website.data.rstrip(),
+                WEBSITE         : self.website.data.rstrip(),
                 LOCATION        : self.location.data.rstrip(),
                 DESCRIPTION     : self.description.data
             }
