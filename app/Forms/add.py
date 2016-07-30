@@ -6,7 +6,7 @@ from app.Helpers.Constant import *
 
 class regoForm(Form):
     index       = TextField(INDEX)
-    agencyName  = TextField(NAME, [validators.required()])
+    agencyName  = TextField(NAME)
     website     = TextField(WEBSITE)
     location    = TextField(LOCATION) #country
     description = TextAreaField(DESCRIPTION)
@@ -27,8 +27,9 @@ class regoForm(Form):
 
 
         checkIndex = agency_collection.find_one({INDEX: float(self.index.data.rstrip())}) if self.index.data.rstrip() is not '' else ''
+
         if checkIndex:
-            flash('Agency has already been filled and will be updated', 'warning')
+            flash('Agency already exists and will be updated', 'warning')
             bufferName        = self.agencyName.data.rstrip() or checkIndex[NAME]
             bufferWebsite     = self.website.data.rstrip() or checkIndex[WEBSITE]
             bufferLocation    = self.location.data.rstrip() or checkIndex[LOCATION]
