@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
 import os
-#from app import app, agent_collection, manager
-from app import app, manager
+from app import app, agency_collection, manager
+#from app import app, manager
 
 from jinja2 import Environment, FileSystemLoader
 from flask import render_template
@@ -31,7 +31,7 @@ def render(page, form=None, error=None, jsonObject=None, extra=None):
                                ), error
     else:
         return render_template(page,
-                               
+                               form = form,
                                extra = extra)
 
 ###############################################################################
@@ -39,3 +39,4 @@ def render(page, form=None, error=None, jsonObject=None, extra=None):
 ###############################################################################
 from app.Views import home
 from app.Views import aboutus
+from app.Views import add

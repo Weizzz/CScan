@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+            <form id="registerForm" method="post" action= {{ url_for('add') }}>
+                  <label>Agency Name</label>
+                  {{ form.agencyName(placeholder="E.g. Two Swans") }}
+
+                  <label>Website</label>
+                  {{ form.website(placeholer="E.g. www.twoswans.com") }}
+
+                  <label>Location</label>
+                  {{ form.location(placeholder="Insert Country") }}
+
+                  <label>Description</label>
+                  {{ form.description(placeholder="Insert description") }}
+
+
+                <button class="fluid ui blue submit button" type="submit">Register</button>
+            </form>
+
+{% endblock %}
