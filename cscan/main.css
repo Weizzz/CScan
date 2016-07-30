@@ -25,3 +25,7 @@ body{
   height:100%;
   background-color: rgba(0, 0, 0, 0.3);
 }
+
+.section-intro:focus{
+  background-color: rgba(255, 0, 0, 0.6);
+}
