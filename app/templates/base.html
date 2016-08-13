@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <link rel="stylesheet" href= {{ url_for('static', filename='CSS/semantic.css') }} >
+      <link rel="stylesheet" href= {{ url_for('static', filename='CSS/semantic.min.css') }} >
+      <link rel="stylesheet" href= {{ url_for('static', filename='CSS/style.css') }} >
+      <script src= {{ url_for('static', filename='CSS/semantic.js') }}></script>
+      <script src= {{ url_for('static', filename='CSS/semantic.min.js') }}></script>
     </head>
     <body>
       <!-- Warning message. Activated by flash() in views.py -->
@@ -20,9 +26,25 @@
               {% endfor%}
           {% endif %}
       {% endwith %}
-      
+
+      <!-- header nav bar -->
+      <div class = "header-nav-bar ui inverted menu">
+        <a class="header item" href= {{ url_for('home') }}>CSCAN</a>
+        <a class="item" href= {{ url_for('add') }}>Add</a>
+        <a class="item" href= {{ url_for('list') }}>List</a>
+
+      </div>
+
       <!-- Main Body -->
-      {% block content %}
-      {% endblock %}
+      <div class="content">
+        {% block content %}
+        {% endblock %}
+      </div>
+      <!-- footer -->
+      <footer>
+        <div class="ui inverted vertical footer segment">
+
+        </div>
+      </footer>
     </body>
 </html>

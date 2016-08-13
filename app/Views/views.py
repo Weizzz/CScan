@@ -32,6 +32,7 @@ def render(page, form=None, error=None, jsonObject=None, extra=None):
     else:
         return render_template(page,
                                form = form,
+                               jsonObject = jsonObject,
                                extra = extra)
 
 ###############################################################################
@@ -40,3 +41,4 @@ def render(page, form=None, error=None, jsonObject=None, extra=None):
 from app.Views import home
 from app.Views import aboutus
 from app.Views import add
+from app.Views import list

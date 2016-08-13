@@ -1,0 +1,28 @@
+html{
+  font-size: 12px;
+}
+
+h1,h2,h3,p,label{
+  word-wrap: break-word;
+}
+
+.header-nav-bar{
+    border-radius: 0 !important;
+}
+
+body{
+
+}
+
+footer{
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  //height:30px;
+  width:100%;
+
+}
+
+.content{
+
+}

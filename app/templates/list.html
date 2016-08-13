@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <h1 class="ui header">List of agencies in db</h1>
+  <br><br>
+
+  <!--<div class="ui grid">-->
+  <table class="ui inverted blue celled right aligned table">
+      <!--<div style="float: left;
+      font-size: small;
+      margin-right: 2em;
+      min-width: 10em;
+      max-width: 10em;
+      word-wrap: break-word;">-->
+      <thead>
+          <tr>
+              <th class="left aligned">Index</th>
+              <th class="left aligned">Agency Name</th>
+              <th>Website</th>
+              <th>Location</th>
+              <th>Description</th>
+          </tr>
+      </thead>
+      <tbody>
+        {% for user in jsonObject %}
+
+        <tr>
+
+            <td class="left aligned">{{ user.get('index', '0xdeadbeef') }}</td>
+            <td class="left aligned">{{ user.get('agencyname', '0xdeadbeef') }}</td>
+            <td>{{ user.get('website', '0xdeadbeef') }}</td>
+            <td>{{ user.get('location', '0xdeadbeef') }}</td>
+            <td>{{ user.get('description', '0xdeadbeef') }}</td>
+        </tr>
+        {% endfor %}
+
+      </tbody>
+  </table>
+{% endblock %}

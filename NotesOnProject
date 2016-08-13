@@ -1,5 +1,12 @@
 Questions:
 
   1. check what render template requires.
-  2. connect mongodb to python
+
   3. add flash
+
+NOTES:
+ - run ./server.py
+ - got to /add to add agencies
+ - go to /list to look at list of agencies.
+ - to log into database:
+  - MongoClient('mongodb://cscan:wallacefucktheworld@ds031965.mlab.com:31965/cscandb')
