@@ -1,5 +1,18 @@
+
+
 html{
   font-size: 12px;
+}
+
+input, textarea{
+  border: none;
+  outline: 0;
+  border-radius: 0.3em;
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-size: 14px;
+  line-height: 1.4285em;
+  font-weight: bolder;
+  color: #545454;
 }
 
 h1,h2,h3,p,label{
@@ -25,4 +38,10 @@ footer{
 
 .content{
   margin: 2em;
+}
+
+.homepage{
+  background-image: url("../images/homepage.jpg") !important;
+  height: 900px;
+  background-size: 100% auto !important;
 }

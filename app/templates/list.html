@@ -26,19 +26,24 @@
       <tbody>
         {% for user in jsonObject %}
 
-        <tr>
+        <tr id="agency_{{ user.get('index', '0xdeadbeef') }}" class="agency">
 
             <input type='hidden' name="index" value="{{ user.get('index', '0xdeadbeef') }}">
+            <input type='hidden' name="agencyname" value="{{ user.get('agencyname', '0xdeadbeef') }}">
+            <input type='hidden' name="website" value="{{ user.get('website', '0xdeadbeef') }}">
+            <input type='hidden' name="location" value="{{ user.get('location', '0xdeadbeef') }}">
+            <input type='hidden' name="description" value="{{ user.get('description', '0xdeadbeef') }}">
+
             <td class="left aligned">{{ user.get('index', '0xdeadbeef') }}</td>
             <td class="left aligned">{{ user.get('agencyname', '0xdeadbeef') }}</td>
             <td>{{ user.get('website', '0xdeadbeef') }}</td>
             <td>{{ user.get('location', '0xdeadbeef') }}</td>
             <td>{{ user.get('description', '0xdeadbeef') }}</td>
             <td>
-              <!--<button id="{{ user.get('index', '0xdeadbeef') }}" class="editAgencyButton ui submit button" type="submit">
+              <button id="{{ user.get('index', '0xdeadbeef') }}" class="editAgencyButton ui submit button" type="submit">
                   edit
-              </button>-->
-              <button id="{{ user.get('index', '0xdeadbeef') }}" class="deleteAgencyButton ui submit button" type="submit">
+              </button></td>
+              <td><button id="{{ user.get('index', '0xdeadbeef') }}" class="deleteAgencyButton ui submit button" type="submit">
                 delete
             </button></td>
         </tr>
