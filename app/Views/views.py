@@ -42,3 +42,5 @@ from app.Views import home
 from app.Views import aboutus
 from app.Views import add
 from app.Views import list
+from app.Views import deleteAgency
+from app.Views import editAgency

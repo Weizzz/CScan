@@ -20,6 +20,7 @@
               <th>Website</th>
               <th>Location</th>
               <th>Description</th>
+
           </tr>
       </thead>
       <tbody>
@@ -27,11 +28,19 @@
 
         <tr>
 
+            <input type='hidden' name="index" value="{{ user.get('index', '0xdeadbeef') }}">
             <td class="left aligned">{{ user.get('index', '0xdeadbeef') }}</td>
             <td class="left aligned">{{ user.get('agencyname', '0xdeadbeef') }}</td>
             <td>{{ user.get('website', '0xdeadbeef') }}</td>
             <td>{{ user.get('location', '0xdeadbeef') }}</td>
             <td>{{ user.get('description', '0xdeadbeef') }}</td>
+            <td>
+              <!--<button id="{{ user.get('index', '0xdeadbeef') }}" class="editAgencyButton ui submit button" type="submit">
+                  edit
+              </button>-->
+              <button id="{{ user.get('index', '0xdeadbeef') }}" class="deleteAgencyButton ui submit button" type="submit">
+                delete
+            </button></td>
         </tr>
         {% endfor %}
 

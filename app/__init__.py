@@ -27,6 +27,8 @@ client = MongoClient()
 client = MongoClient('mongodb://cscan:wallacefucktheworld@ds031965.mlab.com:31965/cscandb')
 db = client['cscandb']
 agency_collection = db['agency']
+meta_data = db['metadb']
+
 
 # Manager authentication with LoginManager
 # Handle Login with LoginManager

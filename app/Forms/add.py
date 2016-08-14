@@ -1,6 +1,6 @@
 from wtforms import Form, BooleanField, TextField, PasswordField,\
                     validators, ValidationError, SelectField, TextAreaField
-from app import agency_collection
+from app import agency_collection, meta_data
 from flask import flash
 from app.Helpers.Constant import *
 
@@ -49,7 +49,8 @@ class regoForm(Form):
             return True
         else:
 
-            newIndex = agency_collection.count()
+            document = meta_data.find_one({META:INDEX})
+            newIndex = int(document[INDEX]) + 1
 
             agency = {
                 INDEX           : newIndex,
@@ -61,5 +62,8 @@ class regoForm(Form):
 
             # insert into database
             agency_collection.insert_one(agency)
+
+            #update index
+            meta_data.update({META : INDEX}, {"$set" : { INDEX : newIndex}})
 
             return True
