@@ -36,7 +36,7 @@ $(function () {
         var description = $tr.find('input[name="description"]').val();
         var agencyString = "#agency_".concat(index);
 
-        var div_data = "<input type='hidden' name='index' value=" + index +"><td class='left aligned'>"+ index +"</td><td class='left aligned'><input class='' type='text' name='agencyname' value="+ agencyname +"></td><td><input class='' type='text' name='website' value="+ website +"></td><td><input class='' type='text' name='location' value="+ location +"></td><td><textarea cols='90' class='' name='description'>"+ description +"</textarea></td><td><button type='button' class='agencyEditSubmitButton ui button'>Done</button></td>";
+        var div_data = "<input type='hidden' name='index' value=" + index +"><td class='left aligned'>"+ index +"</td><td class='left aligned'><input class='' type='text' name='agencyname' value="+ agencyname +"></td><td><input class='' type='text' name='website' value="+ website +"></td><td><input class='' type='text' name='location' value="+ location +"></td><td><textarea cols='50' class='' name='description' style='width:100%'>"+ description +"</textarea></td><td><button type='button' class='agencyEditSubmitButton ui button'>Done</button></td>";
 
         $(agencyString).html(div_data);
 
